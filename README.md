@@ -1,82 +1,57 @@
 # CineAI
 
-Trabajo de Fin de Grado del Ciclo Formativo de Grado Superior en Desarrollo de Aplicaciones Multiplataforma (DAM).
+Final degree project (TFG) for the Higher Vocational Training (CFGS) in Multiplatform Application Development (DAM).
 
-CineAI es una aplicación móvil de recomendación de películas que combina el catálogo de [TMDb](https://www.themoviedb.org/) con **CineBot**, un asistente conversacional basado en la API de OpenAI que ayuda al usuario a encontrar la película perfecta para cada momento.
+CineAI is a mobile movie-recommendation app combining the [TMDb](https://www.themoviedb.org/) catalog with **CineBot**, an AI chat assistant powered by the OpenAI API that helps users find the perfect movie for any moment.
 
-Desarrollada con Flutter para Android e iOS.
+Built with Flutter for Android and iOS.
 
-## Funcionalidades
+## Features
 
-- **Autenticación** de usuarios (registro / inicio de sesión) con Firebase Auth
-- **Catálogo de películas**: populares, en tendencia, búsqueda y recomendaciones (TMDb)
-- **CineBot**: chat con IA que recomienda películas según lo que pide el usuario
-- **Listas personales**: favoritas, pendientes, vistas y listas personalizadas
-- **Valoraciones y reseñas** de películas
-- **Notificaciones** push (Firebase Cloud Messaging + notificaciones locales)
-- **Perfil de usuario** con actividad e historial
+- **Authentication** (sign up / log in) with Firebase Auth
+- **Movie catalog**: popular, trending, search and recommendations (TMDb)
+- **CineBot**: AI chat that recommends movies based on what the user asks for
+- **Personal lists**: favorites, watchlist, watched and custom lists
+- **Ratings and reviews**
+- **Push notifications** (Firebase Cloud Messaging + local notifications)
+- **User profile** with activity history
 
-## Tecnologías
+## Tech stack
 
 - [Flutter](https://flutter.dev/) / Dart
 - [Firebase](https://firebase.google.com/): Auth, Cloud Firestore, Cloud Messaging
-- [TMDb API](https://developer.themoviedb.org/) — datos de películas
+- [TMDb API](https://developer.themoviedb.org/) — movie data
 - [OpenAI API](https://platform.openai.com/) — CineBot (gpt-4o-mini)
 
-## Documentación
+## Documentation
 
-En la carpeta [`docs/`](./docs) están disponibles:
+Available in [`docs/`](./docs):
 
-- Memoria del TFG
-- Manual de usuario
-- Manual de instalación
+- Final project report (Memoria)
+- User manual
+- Installation manual
 
-## Descargar la app
+## Download the app
 
-La última versión compilada (APK) está disponible en la sección [Releases](../../releases) de este repositorio.
+The latest compiled APK is available under [Releases](../../releases).
 
-## Puesta en marcha (desarrollo)
+## Getting started (development)
 
-### Requisitos
+### Requirements
 
-- [Flutter SDK](https://docs.flutter.dev/get-started/install) instalado
-- Una clave de API de [TMDb](https://www.themoviedb.org/settings/api)
-- Una clave de API de [OpenAI](https://platform.openai.com/api-keys)
-- Un proyecto de [Firebase](https://console.firebase.google.com/) propio (para `google-services.json` en `android/app/`)
+- [Flutter SDK](https://docs.flutter.dev/get-started/install)
+- A [TMDb](https://www.themoviedb.org/settings/api) API key
+- An [OpenAI](https://platform.openai.com/api-keys) API key
+- Your own [Firebase](https://console.firebase.google.com/) project (for `google-services.json` in `android/app/`)
 
-### Configuración
+### Configuration
 
-Este proyecto no incluye ninguna clave en el código: se inyectan en tiempo de compilación para no exponerlas en el repositorio.
+No API keys are hardcoded in this repository — they're injected at build time.
 
-1. Copia `env.json.example` a `env.json` y rellena tus propias claves:
+1. Copy `env.json.example` to `env.json` and fill in your own keys:
 
    ```json
    {
-     "OPENAI_API_KEY": "tu-clave-de-openai",
-     "TMDB_API_KEY": "tu-clave-de-tmdb"
+     "OPENAI_API_KEY": "your-openai-key",
+     "TMDB_API_KEY": "your-tmdb-key"
    }
-   ```
-
-2. Instala las dependencias:
-
-   ```
-   flutter pub get
-   ```
-
-3. Ejecuta la app pasando las claves como `--dart-define-from-file`:
-
-   ```
-   flutter run --dart-define-from-file=env.json
-   ```
-
-### Compilar el APK de release
-
-```
-flutter build apk --release --dart-define-from-file=env.json
-```
-
-El APK se genera en `build/app/outputs/flutter-apk/app-release.apk`.
-
-## Autor
-
-Héctor Grande
