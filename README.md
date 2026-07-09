@@ -55,3 +55,28 @@ No API keys are hardcoded in this repository — they're injected at build time.
      "OPENAI_API_KEY": "your-openai-key",
      "TMDB_API_KEY": "your-tmdb-key"
    }
+   ```
+
+2. Install dependencies:
+
+   ```
+   flutter pub get
+   ```
+
+3. Run the app, passing the keys via `--dart-define-from-file`:
+
+   ```
+   flutter run --dart-define-from-file=env.json
+   ```
+
+### Build a release APK
+
+```
+flutter build apk --release --dart-define-from-file=env.json
+```
+
+The APK is generated at `build/app/outputs/flutter-apk/app-release.apk`.
+
+## Author
+
+Héctor Grande Sánchez
